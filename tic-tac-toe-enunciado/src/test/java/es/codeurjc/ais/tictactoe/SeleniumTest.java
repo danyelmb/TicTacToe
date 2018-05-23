@@ -6,12 +6,21 @@
 package es.codeurjc.ais.tictactoe;
 
 import junit.framework.TestCase;
-import org.junit.After;
+
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import org.openqa.selenium.Alert;
+
+
+
 
 /**
  *
@@ -20,9 +29,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumTest extends TestCase{
     private WebDriver driver1;
     private WebDriver driver2;
+
+
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+        WebApp.start();
+    }
     
-    
-    
+    @AfterClass
+    public static void teardownClass() {
+        WebApp.stop();
+    }
     
     @Before
     @Override
@@ -31,7 +49,8 @@ public class SeleniumTest extends TestCase{
         driver2 = new ChromeDriver();
         
         
-    }
+    }   
+
     
     @After
     @Override
@@ -40,7 +59,7 @@ public class SeleniumTest extends TestCase{
     }
     
     @Test
-    public void JuegoP1() {
+    public void testJuegoP1() {
         driver1.get("http://localhost:8080/");
         driver2.get("http://localhost:8080/");
         
@@ -52,9 +71,18 @@ public class SeleniumTest extends TestCase{
         driver2.findElement(By.id("nickname")).sendKeys(name2);
         driver2.findElement(By.id("startBtn")).click();
         
-        String juega = driver1.findElement(By.className("Active")).getText();
-        System.out.println(juega);
-        assertEquals(juega,"Active");
+        driver1.findElement(By.id("cell-0")).click();
+        driver2.findElement(By.id("cell-4")).click();
+        driver1.findElement(By.id("cell-8")).click();
+        driver2.findElement(By.id("cell-6")).click();
+        driver1.findElement(By.id("cell-2")).click();
+        driver2.findElement(By.id("cell-1")).click();
+        driver1.findElement(By.id("cell-5")).click();
         
+        String alert = driver1.switchTo().alert().getText();
+        String win_lose = name1 +" wins! "+ name2 +" looses.";
+        assertEquals(alert,win_lose);
     }
+
+
 }
