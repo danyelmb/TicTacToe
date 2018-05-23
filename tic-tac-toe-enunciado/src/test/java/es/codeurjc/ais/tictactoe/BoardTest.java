@@ -12,7 +12,7 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase{
-    private Board board;
+    /*private Board board;
     private TicTacToeGame tictac;
     private Player p1;
     private Player p2;
@@ -40,12 +40,25 @@ public class BoardTest extends TestCase{
             board = null;
             tictac = null;
 	}
-        
+        */
 	@Test
-	public void testGetCellsIfWinner() {
+	public void testGetCellsIfWinnerP1() {
+            Board board = new Board();
+            board.getCell(0).active=true;
+            board.getCell(0).value="X";
+            board.getCell(3).active=true;
+            board.getCell(3).value="O";
+            board.getCell(1).active=true;
+            board.getCell(1).value="X";
+            board.getCell(4).active=true;
+            board.getCell(4).value="O"; 
+            board.getCell(2).active=true;
+            board.getCell(2).value="X";
+
+            int[] lineaGanadora = {0,1,2};
             
+            assertArrayEquals(board.getCellsIfWinner("X"),lineaGanadora);
             
-                
 	}
 
 	@Test
@@ -53,4 +66,10 @@ public class BoardTest extends TestCase{
 		fail("Not yet implemented");
 	}
 
+        @Test
+	public void testGetCellsIfWinnerP2() {
+                fail("Not yet implemented");
+            
+                
+	}
 }
