@@ -10,8 +10,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BoardTest extends TestCase{
     private Board board;
@@ -20,7 +18,7 @@ public class BoardTest extends TestCase{
     private Player p2;
     private Connection con1;
     private Connection con2;
-    private WebDriver driver;
+
     
     
 	@BeforeClass
@@ -34,7 +32,6 @@ public class BoardTest extends TestCase{
 	@Before
 	public void setUp() throws Exception {
             tictac = new TicTacToeGame();
-            driver = new ChromeDriver();
             board = new Board();   
 	}
 

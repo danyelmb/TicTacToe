@@ -1,14 +1,12 @@
-package es.codeurjc.ais.tictactoe;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package es.codeurjc.ais.tictactoe;
 
 import es.codeurjc.ais.tictactoe.TicTacToeGame.EventType;
 import es.codeurjc.ais.tictactoe.TicTacToeGame.WinnerValue;
-//import es.codeurjc.ais.tictactoe.TicTacToeGame.WinnerValue;
 
 import java.util.ArrayList;
 import java.util.List;
