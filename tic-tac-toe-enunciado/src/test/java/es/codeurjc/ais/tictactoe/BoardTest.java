@@ -1,6 +1,6 @@
+package es.codeurjc.ais.tictactoe;
 
-import es.codeurjc.ais.tictactoe.Board;
-import es.codeurjc.ais.tictactoe.TicTacToeGame;
+
 import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
@@ -9,10 +9,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class BoardTest {
+import junit.framework.TestCase;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BoardTest extends TestCase{
     private Board board;
     private TicTacToeGame tictac;
-
+    private Player p1;
+    private Player p2;
+    private Connection con1;
+    private Connection con2;
+    private WebDriver driver;
+    
+    
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -24,7 +34,8 @@ public class BoardTest {
 	@Before
 	public void setUp() throws Exception {
             tictac = new TicTacToeGame();
-            board = new Board();
+            driver = new ChromeDriver();
+            board = new Board();   
 	}
 
         @After
@@ -35,7 +46,7 @@ public class BoardTest {
         
 	@Test
 	public void testGetCellsIfWinner() {
-            board.getCellsIfWinner("Mark");
+            
             
                 
 	}
