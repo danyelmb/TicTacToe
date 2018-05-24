@@ -76,15 +76,21 @@ public class TicTacToeGameDoble extends TestCase{
 
     @Test
     public void testTurnosMarkSame(){
+        //Turno P1
         assertTrue(tictac.checkTurn(1));
         assertFalse(tictac.checkTurn(2));
         tictac.mark(4);
+        //Turno P2
         assertFalse(tictac.checkTurn(1));
         assertTrue(tictac.checkTurn(2));
+        //Marca una casilla ya seleccionada y comprobamos que el turno
         tictac.mark(4);
+        //Turno P2, otra vez
         assertFalse(tictac.checkTurn(1));
         assertTrue(tictac.checkTurn(2));
+        //Marca una casilla que no esta selecionada y el turno vuelve a cambiar
         tictac.mark(0);
+        //Turno P1
         assertTrue(tictac.checkTurn(1));
         assertFalse(tictac.checkTurn(2));
     }

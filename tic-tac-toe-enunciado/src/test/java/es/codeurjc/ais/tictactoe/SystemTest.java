@@ -72,7 +72,7 @@ public class SystemTest{
     }
     
     @Test
-    public void testJuegoP1() {
+    public void testGameP1() {
         
         driver1.findElement(By.id("cell-0")).click();
         driver2.findElement(By.id("cell-4")).click();
@@ -91,7 +91,7 @@ public class SystemTest{
     }
             
     @Test
-    public void testJuegoP2() {
+    public void testGame2() {
         
         driver1.findElement(By.id("cell-0")).click();
         driver2.findElement(By.id("cell-4")).click();
@@ -109,7 +109,7 @@ public class SystemTest{
     
 
     @Test
-    public void testJuegoEmpate() {
+    public void testGameDraw() {
         
         driver1.findElement(By.id("cell-0")).click();
         driver2.findElement(By.id("cell-4")).click();
