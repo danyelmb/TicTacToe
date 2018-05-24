@@ -73,6 +73,21 @@ public class TicTacToeGameDoble extends TestCase{
     public void testConnection2() {
         verify(connection2, times(2)).sendEvent(eq(EventType.JOIN_GAME), argThat(hasItems(p1,p2)));
     }
+
+    @Test
+    public void testTurnosMarkSame(){
+        assertTrue(tictac.checkTurn(1));
+        assertFalse(tictac.checkTurn(2));
+        tictac.mark(4);
+        assertFalse(tictac.checkTurn(1));
+        assertTrue(tictac.checkTurn(2));
+        tictac.mark(4);
+        assertFalse(tictac.checkTurn(1));
+        assertTrue(tictac.checkTurn(2));
+        tictac.mark(0);
+        assertTrue(tictac.checkTurn(1));
+        assertFalse(tictac.checkTurn(2));
+    }
     
     @Test
     public void testTurnosWinner1(){ 
