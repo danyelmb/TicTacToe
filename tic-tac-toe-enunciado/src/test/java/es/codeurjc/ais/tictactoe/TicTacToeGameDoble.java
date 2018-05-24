@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package es.codeurjc.ais.tictactoe;
 
 import es.codeurjc.ais.tictactoe.TicTacToeGame.EventType;
@@ -27,11 +23,6 @@ import org.mockito.Mock;
 import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 
 
-
-/**
- *
- * @author Daniel
- */
 public class TicTacToeGameDoble extends TestCase{
     private Player p1;
     private Player p2;
@@ -65,8 +56,12 @@ public class TicTacToeGameDoble extends TestCase{
     @After
     @Override
     public void tearDown() throws Exception {
-        reset(connection1);
+        argument=null;
         reset(connection2);
+        reset(connection1);
+        p2=null;
+        p1=null;
+        tictac=null;
     }
     
     @Test
